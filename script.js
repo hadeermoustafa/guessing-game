@@ -8,9 +8,8 @@ let score = 20;
 let highScore = 0;
 
 //Change messages function
-function displayMessage(message) {
-  document.querySelector('.message').textContent = message;
-}
+const displayMessage = message =>
+  (document.querySelector('.message').textContent = message);
 
 //Change score
 function changeScore() {
