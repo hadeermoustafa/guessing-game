@@ -2,7 +2,6 @@
 
 // Generate random number
 let random = Math.floor(Math.random() * 20) + 1;
-console.log(random);
 
 //Define the sarting score and high score
 let score = 20;
