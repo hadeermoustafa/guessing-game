@@ -6,6 +6,7 @@ let random = Math.floor(Math.random() * 20) + 1;
 //Define the sarting score and high score
 let score = 20;
 let highScore = 0;
+let input = document.querySelector('.guess');
 
 //Change messages function
 const displayMessage = message =>
@@ -16,8 +17,8 @@ function changeScore() {
   document.querySelector('.score').textContent = score;
 }
 
-//Trigger onclick event
-document.querySelector('.check').addEventListener('click', function () {
+//What happen on click
+function onClick() {
   // Declare the guessing value (To be entered by the user)
   const guess = Number(document.querySelector('.guess').value);
 
@@ -60,13 +61,21 @@ document.querySelector('.check').addEventListener('click', function () {
     displayMessage('Cant guess anymore , please reset ');
   }
 
-  //Setting Losing and winning conditions
+  //Set Losing and winning conditions
   switch (score) {
     case 0:
       displayMessage('You Lost the game!');
       break;
   }
   changeScore();
+}
+
+//Trigger onclick event
+document.querySelector('.check').addEventListener('click', onClick);
+input.addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') {
+    onClick();
+  }
 });
 
 // Reset the Game
